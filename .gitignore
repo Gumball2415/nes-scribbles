@@ -1,0 +1,7 @@
+*.o
+*/obj/nes/*
+*/output/*
+*/*.nes
+*/map.txt
+zip.in
+*.exe
