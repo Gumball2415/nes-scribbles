@@ -11,7 +11,7 @@
 #
 
 # These are used in the title of the NES program and the zip file.
-title = $(outdir)/hello-nes
+title = $(outdir)/hello_nes
 version = 0.0.1
 
 # Space-separated list of assembly language files that make up the
@@ -21,7 +21,7 @@ objlist = header init imginit text_engine main nmi irq strings palettes nametabl
 
 AS65 = ca65
 LD65 = ld65
-CFLAGS65 = -v -g
+CFLAGS65 = -g
 LDFLAGS65 = -v
 MAPPERCFG = nrom_256.cfg
 objdir = obj/nes
@@ -106,6 +106,9 @@ $(objdir)/%.o: $(objdir)/%.asm
 $(objdir)/header.o: $(objdir)/textchar.chr
 $(objdir)/nametables.o: $(objdir)/text_nametable.bin
 
+$(objdir)/text_nametable.bin: $(imgdir)/text_nametable.bin
+	cp $< $@
+
 # Rules for CHR ROM
 
 $(title).chr: $(objdir)/textchar.chr
@@ -113,9 +116,6 @@ $(title).chr: $(objdir)/textchar.chr
 
 # figure out how to compile .png into .chr later
 $(objdir)/textchar.chr: $(imgdir)/textchar.chr
-	cp $< $@
-
-$(objdir)/text_nametable.bin: $(imgdir)/text_nametable.bin
 	cp $< $@
 
 # $(objdir)/%.chr: $(imgdir)/%.png

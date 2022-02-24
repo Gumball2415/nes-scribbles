@@ -32,7 +32,7 @@
 .globalzp temp_16_3
 
 ; strings.asm
-.global string_test, copyright_info, credits, testline, lorem_ipsum, eternal_gratitude
+.global string_test, copyright_info, credits, testline, lorem_ipsum
 
 ; palettes.asm
 .global palette_1

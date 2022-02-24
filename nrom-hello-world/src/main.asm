@@ -15,15 +15,15 @@
   JSR load_palettes
 
   ; ; load nametable
-  ; LDA #<text_nametable
-  ; STA temp_16_1
-  ; LDA #>text_nametable
-  ; STA temp_16_1 + 1
-  ; ; base nametable to draw on
-  ; LDA #%00
-  ; STA temp_8_0
+  LDA #<text_nametable
+  STA temp_16_1
+  LDA #>text_nametable
+  STA temp_16_1 + 1
+  ; base nametable to draw on
+  LDA #%00
+  STA temp_8_0
 
-  ; JSR load_nametable
+  JSR load_nametable
 
   LDA #$44
   STA framecounter  
@@ -36,9 +36,9 @@
   ; how to wait after vblank?
   
   ; location of string
-  LDA #<eternal_gratitude
+  LDA #<credits
   STA temp_16_1
-  LDA #>eternal_gratitude
+  LDA #>credits
   STA temp_16_1 + 1
   ; base nametable to draw on
   LDA #%00
@@ -47,6 +47,18 @@
   LDA #2
   STA temp_8_1
   LDA #3
+  STA temp_8_2
+
+  JSR textprint
+  
+  LDA #<copyright_info
+  STA temp_16_1
+  LDA #>copyright_info
+  STA temp_16_1 + 1
+  
+  LDA #2
+  STA temp_8_1
+  LDA #25
   STA temp_8_2
 
   JSR textprint
