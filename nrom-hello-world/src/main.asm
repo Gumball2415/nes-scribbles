@@ -46,7 +46,7 @@
   ; tile coordinate in nametable to write
   LDA #2
   STA temp_8_1
-  LDA #3
+  LDA #6
   STA temp_8_2
 
   JSR textprint
