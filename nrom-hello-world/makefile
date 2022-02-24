@@ -93,8 +93,8 @@ clean:
 
 objlisto = $(foreach o,$(objlist),$(objdir)/$(o).o)
 
-map.txt $(title).nes: $(MAPPERCFG) $(objlisto)
-	$(LD65) $(LDFLAGS65) --dbgfile $(title).dbg -o $(title).nes -m map.txt -C $^
+$(outdir)/map.txt $(title).nes: $(MAPPERCFG) $(objlisto)
+	$(LD65) $(LDFLAGS65) --dbgfile $(title).dbg -o $(title).nes -m $(outdir)/map.txt -C $^
 
 $(objdir)/%.o: $(srcdir)/%.asm $(srcdir)/defines.inc $(srcdir)/global.inc
 	$(AS65) $(CFLAGS65) $< -o $@
