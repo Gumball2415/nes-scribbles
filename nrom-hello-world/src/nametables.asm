@@ -3,4 +3,4 @@
 
 .segment "BANK1"
 text_nametable:
-  .incbin "obj/nes/text_nametable.bin"
+  .incbin "obj/text_nametable.bin"
