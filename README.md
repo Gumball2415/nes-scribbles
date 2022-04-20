@@ -7,7 +7,7 @@
  * [Hello_NES](nrom-hello-world/)
 	 - My official first NES program!
 	 - A text will appear after 1 second has elapsed.
- * BG-andalf the White-Gray
+ * [BG-andalf the White-Gray](BG-andalf_the_White-Gray)
 	 - This program is intended to help in observing and investigating jailbars in NES and Famicom video outputs.
 	 - Press A to change the BG color.
 	 - Yes the name was a pun on the BG being white or gray.
@@ -25,7 +25,7 @@ Copyright Persune 2022.
 - lidnariq
 - Fiskbit
 - The entire NESDev community and their extensive wiki!
-####I will be always grateful for your help!
+###I will be always grateful for your help!
  
 ## Support
 Support me on [Ko-Fi](https://ko-fi.com/persune) to help me make more open-sourced stuff!
