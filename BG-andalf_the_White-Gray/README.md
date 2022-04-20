@@ -4,7 +4,7 @@
 
 This program is a simple background intended to make jailbars more noticable, for use in experimenting jailbar reduction.
 
-##Use
+## Use
 
 Press A for white, press B for gray.
 
@@ -20,4 +20,5 @@ Run the makefile in a suitable bash environment. For more detailed instructions,
 
 - Initial template: yoeynsf
 - Programming help: yoeynsf, Kasumi, lidnariq
+
 Thanks so much for your help!! ^^
