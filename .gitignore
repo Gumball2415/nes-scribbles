@@ -1,5 +1,6 @@
 *.o
 */obj/nes/*
+*/obj/*
 */output/*
 */*.nes
 */map.txt
