@@ -25,6 +25,7 @@ Copyright Persune 2022.
 - lidnariq
 - Fiskbit
 - The entire NESDev community and their extensive wiki!
+
 ###I will be always grateful for your help!
  
 ## Support

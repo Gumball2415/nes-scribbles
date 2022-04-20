@@ -1,7 +1,10 @@
-# BG Jailbars
+# BG-andalf the White-Gray
 
 ## About
 This program is a simple background intended to make jailbars more noticable, for use in experimenting jailbar reduction.
+
+##Use
+Press A for white, press B for gray.
 
 ## Compiling
 Dependencies (these must be available in path):
@@ -12,6 +15,5 @@ Run the makefile in a suitable bash environment. For more detailed instructions,
 
 ## Credits
 - Initial template: yoeynsf
-- Programming help: yoeynsf, Kasumi, studsX, Fiskbit, Pinobatch, jroweboy, zeta0134
-- General assistance: the NESDev Discord server
-Thanks so much for your wonderful help!!
+- Programming help: yoeynsf, Kasumi, lidnariq
+Thanks so much for your help!! ^^
