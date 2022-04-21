@@ -1,8 +1,5 @@
 ; some flags here for build configuration i guess
 
-; use limited charset
-COMPACT_CHARSET = 0
-
 ;;; actual code to do with the file starts here ;;;
 .include "defines.inc"
 .include "global.inc"
@@ -79,21 +76,6 @@ COMPACT_CHARSET = 0
 .segment "INTERNALRAM"
   ; internal RAM
 
-; "BANK0"
-  ; source files are assembled in the order they're included
-  ; .include "init.asm"
-  ; .include "imginit.asm"
-  ; .include "text_engine.asm"
-  ; .include "main.asm"
-  ; .include "nmi.asm"
-  ; .include "irq.asm"
-
-; "BANK1"
-  ; TODO: figure out compression and where the heck to decompress data
-  ; DPCM samples here
-  ; .include "strings.asm"
-  ; .include "palettes.asm"
-  ; .include "nametables.asm"
 
 .segment "VECTORS"
   .addr NMI_HANDLER, RESET_HANDLER, IRQ_HANDLER

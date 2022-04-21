@@ -39,7 +39,7 @@ palette_tableHi:
 .proc PALETTE_LOAD
   LDA #0
   STA PPUMASK               ; disable rendering
-  STA PPUCTRL               ; writes to PPUDATA will increment by 1 to the next PPU address
+  STA PPUCTRL
 
   LDA PPUSTATUS
   ; address of palettes, $3F00
@@ -71,7 +71,7 @@ palette_tableHi:
 .proc CLEAR_NAMETABLE
   LDA #0
   STA PPUMASK               ; disable rendering
-  STA PPUCTRL               ; writes to PPUDATA will increment by 1 to the next PPU address
+  STA PPUCTRL
 
   LDA PPUSTATUS
 
