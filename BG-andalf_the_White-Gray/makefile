@@ -17,7 +17,7 @@ version = 0.0.1
 # Space-separated list of assembly language files that make up the
 # PRG ROM.  If it gets too long for one line, you can add a backslash
 # (the \ character) at the end of the line and continue on the next.
-objlist = control_read header init irq main nametables nmi palettes
+objlist = control_read header init irq main nmi palettes
 
 AS65 = ca65
 LD65 = ld65
@@ -102,21 +102,14 @@ $(objdir)/%.o: $(srcdir)/%.asm $(srcdir)/defines.inc $(srcdir)/global.inc
 $(objdir)/%.o: $(objdir)/%.asm
 	$(AS65) $(CFLAGS65) $< -o $@
 
-# Files that depend on .incbin'd files
-$(objdir)/header.o: $(objdir)/textchar.chr
-$(objdir)/nametables.o: $(objdir)/text_nametable.bin
-
-$(objdir)/text_nametable.bin: $(imgdir)/text_nametable.bin
-	cp $< $@
-
 # Rules for CHR ROM
 
-$(title).chr: $(objdir)/textchar.chr
-	cat $^ > $@
+# $(title).chr: $(objdir)/textchar.chr
+	# cat $^ > $@
 
 # figure out how to compile .png into .chr later
-$(objdir)/textchar.chr: $(imgdir)/textchar.chr
-	cp $< $@
+# $(objdir)/textchar.chr: $(imgdir)/textchar.chr
+	# cp $< $@
 
 # $(objdir)/%.chr: $(imgdir)/%.png
 	# $(PY) tools/pilbmp2nes.py $< $@
