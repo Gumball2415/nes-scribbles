@@ -21,9 +21,6 @@ palette_tableHi:
 
 .proc PALETTE_TOGGLE
   ; wait for vblank
-:
-  BIT PPUSTATUS
-  BPL :-
   
   LDY system_state
   LDA palette_tableLo,y
