@@ -6,7 +6,7 @@ This program is a simple background intended to make jailbars more noticable, fo
 
 ## Use
 
-Press A for white, press B for gray.
+Press A for gray, press B for white.
 
 ## Compiling
 
