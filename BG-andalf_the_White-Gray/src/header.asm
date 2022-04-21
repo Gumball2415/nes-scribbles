@@ -81,5 +81,4 @@
   .addr NMI_HANDLER, RESET_HANDLER, IRQ_HANDLER
 
 .segment "CHR"
-  .incbin "obj/nes/textchar.chr"
-
+  .res 8192, $00

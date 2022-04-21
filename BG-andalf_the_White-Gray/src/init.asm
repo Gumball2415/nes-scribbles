@@ -46,16 +46,6 @@ CLEARMEM:
 :
   BIT PPUSTATUS
   BPL :-
-  ; clear nametables because we are nice :P
-  
-  ; temp_8_0 is already 0 because of zeropage init
-  JSR CLEAR_NAMETABLE
-  INC temp_8_0
-  JSR CLEAR_NAMETABLE
-  INC temp_8_0
-  JSR CLEAR_NAMETABLE
-  INC temp_8_0
-  JSR CLEAR_NAMETABLE
 
   LDA #$02 
   STA OAMDMA
