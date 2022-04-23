@@ -18,16 +18,21 @@
   LDA #KEY_A
   BIT controller_1
   BEQ :+
-  LDA #0
+  LDA #00
   STA system_state
   JSR PALETTE_TOGGLE
   ; check for B press
 : LDA #KEY_B
   BIT controller_1
   BEQ :+
-  LDA #1
+  LDA #01
   STA system_state
   JSR PALETTE_TOGGLE
+:
+  LDA #KEY_STA
+  BIT controller_1
+  BEQ :+
+  LDA system_state
 :
 
   INC framecounter

@@ -64,12 +64,11 @@
   ; buttons pressed for both controllers
   controller_press_1: .res 1
   controller_press_2: .res 1
-  ; dummy variables
-  dummy1: .res 1
-  dummy2: .res 1
   ; 4 word-size variables
   temp_16_0: .res 2
   temp_16_1: .res 2
+  temp_16_2: .res 2
+  temp_16_3: .res 2
   
   ; $0010-$001F...
 
@@ -81,4 +80,4 @@
   .addr NMI_HANDLER, RESET_HANDLER, IRQ_HANDLER
 
 .segment "CHR"
-  .res 8192, $00
+  .incbin "../gfx/textchar.chr"

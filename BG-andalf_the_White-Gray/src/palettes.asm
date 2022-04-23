@@ -5,10 +5,13 @@
 
 palette_choice1:
   ; gandalf the gray
-  .res 32, $2D
+  .byte $2D,$2D,$30,$30
+  .res 28, $2D
+
 palette_choice2:
   ; gandalf the white
-  .res 32, $30
+  .byte $30,$00,$30,$00
+  .res 28, $30
 
 ; palette pointer selection
 ; thanks Kasumi!
@@ -20,7 +23,6 @@ palette_tableHi:
   .byte >palette_choice2
 
 .proc PALETTE_TOGGLE
-  ; wait for vblank
   
   LDY system_state
   LDA palette_tableLo,y

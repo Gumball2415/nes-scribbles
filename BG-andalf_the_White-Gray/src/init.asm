@@ -46,6 +46,8 @@ CLEARMEM:
 :
   BIT PPUSTATUS
   BPL :-
+  ; clear all nametables
+  JSR CLEAR_NAMETABLES
 
   LDA #$02 
   STA OAMDMA
@@ -61,6 +63,8 @@ CLEARMEM:
   LDA #>palette_choice2
   STA temp_16_0 + 1
   JSR PALETTE_LOAD
+  
+  
   
   JMP main
 .endproc
