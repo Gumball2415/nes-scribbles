@@ -10,7 +10,7 @@ string_test:
   .byte "    SATELLITE & STARDUST"
   .byte char_EOS
 copyright_info:
-  .byte "v.0.0.2", char_LF
+  .byte "v.0.0.3", char_LF
   .byte "(C) SATELLITE & STARDUST ", char_SNS_LOGO, char_EOS
 credits:
   .byte "Initial Template:", char_LF

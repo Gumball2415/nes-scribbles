@@ -190,7 +190,7 @@ mainloop:
   LDA #$09
   STA $4003
 
-  JSR waitframe
+  JSR waitframe		; F03
   JSR waitframe
   JSR waitframe
   
@@ -200,7 +200,7 @@ mainloop:
   LDA #$08
   STA $4003
 
-  JSR waitframe
+  JSR waitframe		; F03
   JSR waitframe
   JSR waitframe
 
@@ -219,7 +219,7 @@ mainloop:
   LDA #$09
   STA $4007
 
-  JSR waitframe
+  JSR waitframe		; F03
   JSR waitframe
   JSR waitframe
   
@@ -245,9 +245,9 @@ mainloop:
   STA $4003
 ; A-3
   LDA #$F6
-  STA $4002
+  STA $4006
   LDA #$08
-  STA $4003
+  STA $4007
 
   JSR waitframe		; F03
   JSR waitframe
@@ -296,7 +296,7 @@ mainloop:
   LDA #$08
   STA $4007
 
-  JSR waitframe
+  JSR waitframe		; F03
   JSR waitframe
   JSR waitframe
 
@@ -311,7 +311,7 @@ mainloop:
   LDA #$08
   STA $4007
 
-  JSR waitframe
+  JSR waitframe		; F03
   JSR waitframe
   JSR waitframe
   
@@ -366,6 +366,7 @@ mainloop:
   JSR waitframe
   JSR waitframe
 
+; ---
   LDA #%10110000
   STA $4000
   LDA #0
