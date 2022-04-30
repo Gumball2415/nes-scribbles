@@ -13,6 +13,9 @@ Bits and pieces of small programs I made for the NES as I learn. Inspired by Pin
 	 - This program is intended to help in observing and investigating jailbars in NES and Famicom video outputs.
 	 - Press A to change the BG color.
 	 - Yes the name was a pun on the BG being white or gray.
+ * [NROM-Beeper](nrom-beeper)
+	 - This simple program makes a beep when you press B
+	 - Created to debug my NROM prototypes.
 
 ## Licence
 
