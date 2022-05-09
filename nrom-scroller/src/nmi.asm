@@ -45,7 +45,6 @@
 :
 
   INC framecounter
-  JSR load_palettes
 
   ; update mask and ctrl state
   LDA PPUMASK_state

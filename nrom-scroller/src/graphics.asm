@@ -36,8 +36,6 @@ palette_tableHi:
   .byte >palette_2
 
 
-text_nametable:
-  .incbin "../gfx/text_nametable.bin"
 logotype_nametable:
   .incbin "../gfx/logotype_nametable.bin"
 star_nametable:
@@ -47,13 +45,11 @@ star_nametable_2:	; sorry, don't know how to deal with .map files yet
 
 nametable_tableLo:
   .byte $00
-  .byte <text_nametable
   .byte <logotype_nametable
   .byte <star_nametable
   .byte <star_nametable_2
 nametable_tableHi:
   .byte $00
-  .byte >text_nametable
   .byte >logotype_nametable
   .byte >star_nametable
   .byte >star_nametable_2

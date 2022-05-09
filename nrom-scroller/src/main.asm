@@ -14,7 +14,7 @@
   ; load nametable 
   LDA #0		; base nametable to draw on
   STA temp_8_0
-  LDA #2
+  LDA #1
   STA nametable_state
   JSR load_nametable
   ; load palettes
@@ -32,22 +32,20 @@
   ; load nametable 
   LDA #0		; base nametable to draw on
   STA temp_8_0
-  LDA #3		; nametable index: stars!
+  LDA #2		; nametable index: stars!
   STA nametable_state
   JSR load_nametable
   ; load other part of nametable
   LDA #1		; base nametable to draw on
   STA temp_8_0
-  LDA #4		; nametable index: stars part 2
+  LDA #3		; nametable index: stars part 2
   STA nametable_state
   JSR load_nametable
-
-  JSR update_scrolling
 
 
   JSR waitframe
 
-mainloop:
+@mainloop:
   LDA system_state
   CMP #0
   BNE :+
@@ -87,7 +85,9 @@ mainloop:
   LDA star_layer_1_y
   STA temp_8_2
   JSR load_sprite
-  JMP mainloop
+  
+  JSR update_scrolling
+  JMP @mainloop
 .endproc
 
 .proc right_direction

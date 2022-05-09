@@ -16,6 +16,8 @@ Bits and pieces of small programs I made for the NES as I learn. Inspired by Pin
  * [NROM-Beeper](nrom-beeper)
 	 - This simple program makes a beep when you press B
 	 - Created to debug my NROM prototypes.
+ * [NROM-Scroller](nrom-scroller)
+	 - I wanted parallax stars, so I made parallax stars!
 
 ## Licence
 
