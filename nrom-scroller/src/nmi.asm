@@ -18,31 +18,6 @@
 
   ; controller state is in controller_1
   JSR CONTROL_READ
-  ; check for R press
-  LDA #KEY_R
-  BIT controller_1
-  BEQ :+
-  LDA #00
-  STA system_state
-  ; check for L press
-: LDA #KEY_L
-  BIT controller_1
-  BEQ :+
-  LDA #01
-  STA system_state
-  ; check for U press
-: LDA #KEY_U
-  BIT controller_1
-  BEQ :+
-  LDA #02
-  STA system_state
-  ; check for D press
-: LDA #KEY_D
-  BIT controller_1
-  BEQ :+
-  LDA #03
-  STA system_state
-:
 
   INC framecounter
 

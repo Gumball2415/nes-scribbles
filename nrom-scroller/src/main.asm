@@ -46,22 +46,29 @@
   JSR waitframe
 
 @mainloop:
-  LDA system_state
-  CMP #0
+  LDA controller_1
+  EOR #KEY_R
+  AND #%0001
   BNE :+
   JSR right_direction
 :
-  CMP #1
+  LDA controller_1
+  EOR #KEY_L
+  AND #%0010
   BNE :+
   JSR left_direction
 :
-  CMP #2
-  BNE :+
-  JSR up_direction
-:
-  CMP #3
+  LDA controller_1
+  EOR #KEY_D
+  AND #%0100
   BNE :+
   JSR down_direction
+:
+  LDA controller_1
+  EOR #KEY_U
+  AND #%1000
+  BNE :+
+  JSR up_direction
 :
 
   ; load 2nd layer stars metasprite
@@ -86,6 +93,7 @@
   STA temp_8_2
   JSR load_sprite
   
+  JSR waitframe
   JSR update_scrolling
   JMP @mainloop
 .endproc
@@ -94,7 +102,7 @@
   ; inc x
   CLC
   LDA ppu_scroll_x
-  ADC #1
+  ADC #2
   STA ppu_scroll_x
   BCC :+
     ; if overflow, change nametable base
@@ -111,7 +119,7 @@
   ; dec x
   SEC
   LDA ppu_scroll_x
-  SBC #1
+  SBC #2
   STA ppu_scroll_x
   BCS :+
     ; if underflow, change nametable base
@@ -128,7 +136,7 @@
   ; dec y
   SEC
   LDA ppu_scroll_y
-  SBC #1
+  SBC #2
   STA ppu_scroll_y
   BCS :+
     ; if underflow, change nametable base
@@ -147,7 +155,7 @@
   ; inc y
   CLC
   LDA ppu_scroll_y
-  ADC #1
+  ADC #2
   STA ppu_scroll_y
   CMP #$EF
   BCC :+
@@ -166,11 +174,11 @@
 .proc sprites_move_right
   SEC
   LDA star_layer_2_x
-  SBC #2
+  SBC #3
   STA star_layer_2_x
   SEC
   LDA star_layer_1_x
-  SBC #3
+  SBC #4
   STA star_layer_1_x
   RTS
 .endproc
@@ -178,11 +186,11 @@
 .proc sprites_move_left
   CLC
   LDA star_layer_2_x
-  ADC #2
+  ADC #3
   STA star_layer_2_x
   CLC
   LDA star_layer_1_x
-  ADC #3
+  ADC #4
   STA star_layer_1_x
   RTS
 .endproc
@@ -190,11 +198,11 @@
 .proc sprites_move_up
   CLC
   LDA star_layer_2_y
-  ADC #2
+  ADC #3
   STA star_layer_2_y
   CLC
   LDA star_layer_1_y
-  ADC #3
+  ADC #4
   STA star_layer_1_y
   RTS
 .endproc
@@ -202,11 +210,11 @@
 .proc sprites_move_down
   SEC
   LDA star_layer_2_y
-  SBC #2
+  SBC #3
   STA star_layer_2_y
   SEC
   LDA star_layer_1_y
-  SBC #3
+  SBC #4
   STA star_layer_1_y
   RTS
 .endproc
