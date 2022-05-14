@@ -93,8 +93,8 @@
   STA temp_8_2
   JSR load_sprite
   
-  JSR waitframe
   JSR update_scrolling
+  JSR waitframe
   JMP @mainloop
 .endproc
 
@@ -109,9 +109,9 @@
     LDA PPUCTRL_state
     EOR #%00000001
     STA PPUCTRL_state
+    STA PPUCTRL
   :
   JSR sprites_move_right
-  JSR waitframe
   RTS
 .endproc
 
@@ -126,9 +126,9 @@
     LDA PPUCTRL_state
     EOR #%00000001
     STA PPUCTRL_state
+    STA PPUCTRL
   :
   JSR sprites_move_left
-  JSR waitframe
   RTS
 .endproc
 
@@ -143,11 +143,11 @@
     LDA PPUCTRL_state
     EOR #%00000010
     STA PPUCTRL_state
+    STA PPUCTRL
 	LDA #$EF
 	STA ppu_scroll_y
   :
   JSR sprites_move_up
-  JSR waitframe
   RTS
 .endproc
 
@@ -163,11 +163,11 @@
     LDA PPUCTRL_state
     EOR #%00000010
     STA PPUCTRL_state
+    STA PPUCTRL
 	LDA #$0
 	STA ppu_scroll_y
   :
   JSR sprites_move_down
-  JSR waitframe
   RTS
 .endproc
 
