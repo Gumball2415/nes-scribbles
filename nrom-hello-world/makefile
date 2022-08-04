@@ -105,6 +105,10 @@ $(objdir)/%.o: $(objdir)/%.asm
 
 # Files that depend on .incbin'd files
 $(objdir)/header.o: $(objdir)/textchar.chr
+$(objdir)/nametables.o: $(objdir)/text_nametable.bin
+
+$(objdir)/text_nametable.bin: $(imgdir)/text_nametable.bin
+	cp $< $@
 
 # Rules for CHR ROM
 
