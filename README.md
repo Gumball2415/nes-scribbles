@@ -18,6 +18,8 @@ Bits and pieces of small programs I made for the NES as I learn. Inspired by Pin
 	 - Created to debug my NROM prototypes.
  * [NROM-Scroller](nrom-scroller)
 	 - I wanted parallax stars, so I made parallax stars!
+ * [NROM Composite Example](nrom-composite-decoded)
+	 - This ROM was quickly made for replicating the [NTSC signal generation example image](https://www.nesdev.org/wiki/File:NTSC_video_ragged_box.png) found in the NESDev wiki.
 
 ## Licence
 
