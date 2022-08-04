@@ -88,6 +88,7 @@ $(objdir)/index.txt: makefile
 # make sure that files actually exist before deleting them
 clean:
 	if [ "$(wildcard $(objdir)/*)" ]; then rm -v $(objdir)/*; fi
+	if [ "$(wildcard $(outdir)/*)" ]; then rm -v $(outdir)/*; fi
 
 # Rules for PRG ROM
 
