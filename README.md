@@ -20,6 +20,8 @@ Bits and pieces of small programs I made for the NES as I learn. Inspired by Pin
 	 - I wanted parallax stars, so I made parallax stars!
  * [NROM Composite Example](nrom-composite-decoded)
 	 - This ROM was quickly made for replicating the [NTSC signal generation example image](https://www.nesdev.org/wiki/File:NTSC_video_ragged_box.png) found in the NESDev wiki.
+ * [NROM 2A03G APU DAC Test](nrom-dac-test)
+	 - This ROM is for testing and probing the DAC outputs of the APU, utilizing the [CPU test mode](https://www.nesdev.org/wiki/CPU_Test_Mode).
 
 ## Licence
 
