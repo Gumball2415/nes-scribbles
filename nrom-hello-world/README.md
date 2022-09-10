@@ -11,6 +11,7 @@ Dependencies (these must be available in path):
 - CA65
 - LD65
 - Mesen
+
 Run the makefile in a suitable bash environment. For more detailed instructions, refer to Pinobatch's [NROM template](https://github.com/pinobatch/nrom-template).
 
 ## Credits
