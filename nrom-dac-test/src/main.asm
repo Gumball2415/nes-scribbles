@@ -33,17 +33,14 @@
 	; enable channel outputs
 	LDA #$1F
 	STA $4015
-	
-	; wait 5 frames
-	JSR waitframe
-	JSR waitframe
-	JSR waitframe
-	JSR waitframe
-	JSR waitframe
 
 	; lock all channels
 	LDA #%10000000
 	STA TEST_TRI_SET
+
+	LDA system_state
+	ORA #STATUS_RENDER
+	STA system_state
 @mainloop:
 	;	requirements:
 	;	1.	something to capture pin 1 and pin 2's output, preferrably a good
@@ -73,12 +70,13 @@
 	JSR iterate_TriNoiDMC
 
 @FinishedTRINOIDMC:
+.if .not .defined(DAC_ASAP)
+	JSR waitframe
+.endif
 	; an iteration is finished, ready for rendering
 	LDA system_state
 	ORA #STATUS_RENDER
 	STA system_state
-
-	JSR waitframe
 	JMP @mainloop
 .endproc
 
@@ -184,9 +182,16 @@
 .endproc
 
 .proc waitframe
-  LDA framecounter
+.if .defined(DAC_DELAY)
+	.repeat 3722		; approx. 4x each frame
+		NOP
+	.endrepeat
+	RTS
+.else
+	LDA framecounter
 :
-  CMP framecounter    ; NMI will change framecounter and then it wont be equal anymore
-  BEQ :-
-  RTS
+	CMP framecounter    ; NMI will change framecounter and then it wont be equal anymore
+	BEQ :-
+	RTS
+ .endif
 .endproc

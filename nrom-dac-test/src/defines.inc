@@ -11,6 +11,11 @@ KEY_SEL				= 1 << 5
 KEY_B				= 1 << 6
 KEY_A				= 1 << 7
 
+; enable this to iterate through as quickly as possible
+;DAC_ASAP			= 1
+; enable this to iterate through at a fixed rate
+;DAC_DELAY			= 1
+
 ; status flags
 STATUS_RENDER 		= 1 << 0  
 STATUS_PU1PU2		= 1 << 1
