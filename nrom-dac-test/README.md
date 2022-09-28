@@ -7,7 +7,7 @@ This requires a special hardware setup to enable directly writing triangle phase
 
 ## Use
 
-Ensure that pin 30 is tied to CPU A3 before use. Measure the isolated voltage outputs of pins 1 and 2 at each iteration step.
+Ensure that pin 30 is tied high before use. Measure the isolated voltage outputs of pins 1 and 2 at each iteration step.
 
 ## Compiling
 
