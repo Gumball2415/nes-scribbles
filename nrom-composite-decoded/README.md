@@ -9,6 +9,7 @@ This ROM was quickly made for replicating the [NTSC signal generation example im
 Press B to make the square red.
 Press A to make the square white.
 Press Start to make the screen white.
+Measure the resulting composite waveform using an oscilloscope.
 
 ## Compiling
 
