@@ -24,11 +24,13 @@ Bits and pieces of small programs I made for the NES as I learn. Inspired by Pin
 	 - This ROM is for testing and probing the DAC outputs of the APU, utilizing the [CPU test mode](https://www.nesdev.org/wiki/CPU_Test_Mode).
  * [NROM 2A03 Amp Test](nrom-amp-test)
 	 - This ROM is for measuring the amplifier characteristics of the Famicom/NES.
+ * [NROM Composite Waveform Example](nrom-composite-waveform)
+	 - This ROM was quickly made for demonstrating the [NTSC PPU composite signal waveform example](https://www.nesdev.org/wiki/NTSC_video#Example_Waveform) found in the NESDev wiki.
 
 ## Licence
 
 This work is licenced under the [MIT license](https://mit-license.org/).
-Copyright Persune 2022.
+Copyright Persune 2023.
 
 ## Thanks to:
 
@@ -39,6 +41,7 @@ Copyright Persune 2022.
 - plgDavid
 - lidnariq
 - Fiskbit
+- org
 - The entire NESDev community and their extensive wiki!
 
 ### I will be always grateful for your help!
