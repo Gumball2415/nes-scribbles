@@ -4,6 +4,9 @@
 
 This ROM was quickly made for demonstrating the [NTSC PPU composite signal waveform example](https://www.nesdev.org/wiki/NTSC_video#Example_Waveform) found in the NESDev wiki.
 
+![](plot/composite waveform example.gif)
+This plot was generated using PPUPlayer's video signal dump, plotted by Matplotlib via a python script and a batch file.
+
 ## Use
 
 Measure the resulting composite waveform using an oscilloscope.
