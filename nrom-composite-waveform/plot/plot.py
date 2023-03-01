@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 import argparse
 import struct
 
-parser = argparse.ArgumentParser(description="Plots an array of double precision floating point numbers into a plot.")
-parser.add_argument("floatarray", help="path to input double precision float array", type=str)
+parser = argparse.ArgumentParser(description="Plots an array of single precision floating point numbers into a plot.")
+parser.add_argument("floatarray", help="path to input single precision float array", type=str)
 args = parser.parse_args()
 
 with open(args.floatarray, mode="rb") as floatarray_file:
