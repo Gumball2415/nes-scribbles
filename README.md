@@ -47,4 +47,5 @@ Copyright Persune 2023.
 ### I will be always grateful for your help!
  
 ## Support
-Support me on [Ko-Fi](https://ko-fi.com/persune) to help me make more open-sourced stuff!
+
+If you enjoy this project or find it helpful, please support me on [Ko-Fi](https://ko-fi.com/persune) or [Patreon](https://www.patreon.com/persune)!
