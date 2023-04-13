@@ -4,6 +4,11 @@ PPUSTATUS			= $2002
 PPUSCROLL			= $2005
 PPUADDR				= $2006
 PPUDATA				= $2007
+
+; use a technique that uses no CHR
+OPTIMIZEDFORCHR		= 0
+PAL_NES_RASTER		= 0
+
 .segment "HEADER"
   .byte "NES", $1A
   .byte $01			; n * 16KB PRG ROM
@@ -13,6 +18,111 @@ PPUDATA				= $2007
 	.addr nmi, reset, irq
 
 .segment "BANK0"
+
+.if ::OPTIMIZEDFORCHR
+nmi:
+	sta PPUADDR		; 4
+	stx PPUADDR		; 4
+.if ::PAL_NES_RASTER
+	; optimized for PAL timings
+	; wait 118 scanlines
+	jsr delay_6144
+	jsr delay_6144
+	jsr delay_192
+	jsr delay_96
+	jsr delay_48
+	jsr delay_24
+	bit PPUDATA		; 4 !!
+	; wait 48 scanlines
+:	jsr delay_3072
+	jsr delay_1536
+	jsr delay_384
+	jsr delay_96
+	jsr delay_12
+	inc $00, x		; 6; dummy
+	bit PPUDATA		; 4 !!
+	dey				; 2
+	bne :-			; 2 1/3
+.else
+	; optimized for NTSC/Dendy timings
+	; wait 69 scanlines
+	jsr delay_6144
+	jsr delay_1536
+	jsr delay_96
+	jsr delay_24
+	inc $00
+	bit PPUDATA		; 4 !!
+	; wait 48 scanlines
+:	jsr delay_3072
+	jsr delay_1536
+	jsr delay_768
+	jsr delay_48
+	jsr delay_24
+	bit PPUDATA		; 4 !!
+	dey				; 2
+	bne :-			; 2 1/3
+.endif
+	ldy #3
+
+irq:
+	rti
+
+; taken from bbbradsmith/nes-audio-tests
+delay_6144:  jsr delay_3072
+delay_3072:  jsr delay_1536
+delay_1536:  jsr delay_768
+delay_768:   jsr delay_384
+delay_384:   jsr delay_192
+delay_192:   jsr delay_96
+delay_96:    jsr delay_48
+delay_48:    jsr delay_24
+delay_24:    jsr delay_12
+delay_12:    rts
+
+reset:
+	sei
+	cld
+
+	ldx #$FF		; init stack
+	txs
+	inx				; now $00
+	stx PPUCTRL		; disable NMI
+	stx PPUMASK		; disable rendering
+
+
+	; wait for the PPU to warm up
+	bit PPUSTATUS
+:	bit PPUSTATUS
+	bpl :-
+:	bit PPUSTATUS
+	bpl :-
+
+	; setup palette
+	lda #$3F
+	sta PPUADDR
+	stx PPUADDR
+	lda #$31		; light blue
+	sta PPUDATA
+	lda #$35		; light pink
+	sta PPUDATA
+	lda #$30		; white
+	sta PPUDATA
+	lda #$35		; light pink
+	sta PPUDATA
+	lda #$31		; light blue
+	sta PPUDATA
+
+	lda #$80
+	sta PPUCTRL			; enable NMI
+
+	lda #$3F
+	ldy #3
+
+	; fall through
+main:
+	jmp main
+
+.else
 
 nmi:
 irq:
@@ -100,6 +210,7 @@ tilegenerator:
 
 	; fall through
 main:
+	ldx #$03
 	jmp main
 
 tilewrites:
@@ -109,3 +220,4 @@ attrwrites:
 	dex
 	bne :-
 	rts
+.endif
