@@ -23,7 +23,7 @@ Run the makefile in a suitable bash environment. For more detailed instructions,
 - Inspiration: plgDavid, lidnariq, Finny
 - Programming help: lidnariq, Kasumi, Fiskbit
 - NROM template: Pinobatch
-- JSR delay code: Rainwarrior
+- JSR tree delay code: Rainwarrior
 - I-CHR: Kasumi
 - NEXXT: FrankenGraphics
 - Art: yoeynsf

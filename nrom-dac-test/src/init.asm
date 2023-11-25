@@ -60,18 +60,47 @@ CLEARPALETTETABLE:
 	STA OAMADDR
 	LDA #02
 	STA OAMDMA
-	NOP
 
-	; clear nametables
+	; load palette
 	LDA #0
-	STA temp_8_0				; nametable 1
-	JSR clear_nametable
-	INC temp_8_0				; nametable 2
-	JSR clear_nametable
-	INC temp_8_0				; nametable 3
-	JSR clear_nametable
-	INC temp_8_0				; nametable 4
-	JSR clear_nametable
+	STA palette_state
+	LDA #0
+	STA temp_8_0
+	JSR load_palette
+	
+	; init triangle sequence with $10, so that we start on the triangle wave's trough
+	LDA #$10
+	STA DAC_SEQ_TRI
+
+	; enable channel outputs
+	LDA #$1F
+	STA $4015
+
+	; lock all channels
+	LDA #%10000000
+	STA TEST_TRI_SET
+
+	;wait vblank 3
+:
+	BIT PPUSTATUS
+	BPL :-
+
+	; write palettes
+	JSR write_palette
+
+	; load nametable
+	LDA #0
+	STA temp_8_0
+	LDA #1		; index 1: screen of text and art
+	STA nametable_state
+	JSR load_nametable
+
+	; update scrolling
+	JSR update_scrolling
+
+	LDA system_state
+	ORA #STATUS_RENDER
+	STA system_state
 
 	LDA #%00011110				; enable rendering
 	STA s_PPUMASK

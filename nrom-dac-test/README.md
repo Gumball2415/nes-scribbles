@@ -7,7 +7,9 @@ This requires a special hardware setup to enable directly writing triangle phase
 
 ## Use
 
-Ensure that pin 30 is tied high before use. Measure the isolated voltage outputs of pins 1 and 2 at each iteration step.
+Ensure that pin 30 is tied high before use. A good way to check is if the counters on screen are counting up.
+
+Measure the isolated voltage outputs of pins 1 and 2 at each iteration step.
 
 ## Compiling
 

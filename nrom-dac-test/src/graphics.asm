@@ -159,6 +159,7 @@ nametable_tableHi:
 .proc display_registers
 ; read from test registers and display their values
 ; base nametable is chosen by temp_8_0
+CHR_OFFSET = $30
 	LDA #0
 	STA PPUMASK					; disable rendering
 	STA PPUCTRL					; writes to PPUDATA will increment by 1 to the next PPU address
@@ -179,7 +180,7 @@ nametable_tableHi:
 	LDA TEST_DAC_PU1PU2			; load value
 	AND #$0F					; get low nybble
 	CLC
-	ADC #$30					; offset to match CHR tile
+	ADC #CHR_OFFSET				; offset to match CHR tile
 	STA PPUDATA
 	
 	; write PU2 status
@@ -196,12 +197,12 @@ nametable_tableHi:
 	LDA #$30					; value 0
 	STA PPUDATA
 	LDA TEST_DAC_PU1PU2
-	LSR
-	LSR
-	LSR
 	LSR							; get high nybble
+	LSR
+	LSR
+	LSR
 	CLC
-	ADC #$30					; offset to match CHR tile
+	ADC #CHR_OFFSET				; offset to match CHR tile
 	STA PPUDATA
 	
 	; write TRI status
@@ -220,7 +221,7 @@ nametable_tableHi:
 	LDA TEST_DAC_TRINOI			; load value
 	AND #$0F					; get low nybble
 	CLC
-	ADC #$30					; offset to match CHR tile
+	ADC #CHR_OFFSET				; offset to match CHR tile
 	STA PPUDATA
 	
 	; write NOI status
@@ -242,7 +243,7 @@ nametable_tableHi:
 	LSR
 	LSR							; get high nybble
 	CLC
-	ADC #$30					; offset to match CHR tile
+	ADC #CHR_OFFSET				; offset to match CHR tile
 	STA PPUDATA
 	
 	; write DMC status
@@ -263,12 +264,12 @@ nametable_tableHi:
 	LSR A
 	LSR A						; get high nybble
 	CLC
-	ADC #$30					; offset to match CHR tile
+	ADC #CHR_OFFSET				; offset to match CHR tile
 	STA PPUDATA
 	LDA temp_8_1
 	AND #$0F					; get low nybble
 	CLC
-	ADC #$30					; offset to match CHR tile
+	ADC #CHR_OFFSET				; offset to match CHR tile
 	STA PPUDATA
 
 	LDA s_PPUCTRL				; enable NMI
