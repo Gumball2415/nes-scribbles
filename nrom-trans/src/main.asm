@@ -210,7 +210,6 @@ tilegenerator:
 
 	; fall through
 main:
-	ldx #$03
 	jmp main
 
 tilewrites:
