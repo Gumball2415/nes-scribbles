@@ -1,15 +1,16 @@
-# NROM DAC Test
+# EPSM $4016 Register Test
 
 ## About
 
-This program utilizes the [CPU test mode](https://www.nesdev.org/wiki/CPU_Test_Mode) to iterate through all possible DAC combinations of the five internal sound channels, grouped by their pin outputs.
-This requires a special hardware setup to enable directly writing triangle phase, isolate pins 1 and 2 to get a clear voltage reading, as well as reading/writing the test registers of the APU at $4018-401A.
+This program [writes to EPSM via $4016](https://www.nesdev.org/wiki/Expansion_Port_Sound_Module#Universal_access).
+
+This requires an EPSM connected to the console, along with OUT1.
 
 ## Use
 
-Ensure that pin 30 is tied high before use. A good way to check is if the counters on screen are counting up.
-
-Measure the isolated voltage outputs of pins 1 and 2 at each iteration step.
+- D-Pad: Navigate bits
+- B: Set bit to 0
+- A: Set bit to 1
 
 ## Compiling
 
@@ -23,10 +24,12 @@ Run the makefile in a suitable bash environment. For more detailed instructions,
 ## Credits
 
 - Initial template: yoeynsf
-- Inspiration: plgDavid, lidnariq
-- Programming help: lidnariq, Kasumi, Fiskbit
+- Inspiration: plgDavid, Fiskbit, Perkka
+- EPSM: Perkka
+- EPSM $4016 write library: Fiskbit
+- Additional defines and libraries: Pinobatch, Kagamiin~, zeta0134
+- Programming help: Perkka, zeta0134, Fiskbit
 - NROM template: Pinobatch
-- I-CHR: Kasumi
 - NEXXT: FrankenGraphics
 - Art: yoeynsf
 - General assistance: the NESDev Discord server
