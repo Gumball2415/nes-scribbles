@@ -74,11 +74,17 @@ CURSOR_Y_MAX = CURSOR_Y_SIZE - 1
 
     ; up/down/left/right: navigate bits
 
+    ; if we move our cursor, enable oam dma
+    lda new_keys
+    and #KEY_UP|KEY_DOWN|KEY_LEFT|KEY_RIGHT
+    beq done_dpad
+    jsr render_oam_enable
+done_dpad:
+
     ; up/down: cursor Y
     lda new_keys
     and #KEY_UP
     beq done_up
-    jsr render_oam_enable
     lda cursor_y
     bne skip_wrap_underflow_y
     ; if underflow, set Y to max
@@ -100,7 +106,6 @@ done_up:
     lda new_keys
     and #KEY_DOWN
     beq done_down
-    jsr render_oam_enable
     lda cursor_y
     cmp #CURSOR_Y_MAX
     ; if overflow, set Y to 0
@@ -127,7 +132,6 @@ done_down:
     lda new_keys
     and #KEY_LEFT
     beq done_left
-    jsr render_oam_enable
     lda cursor_x
     ; if underflow, set X to max
     bne skip_wrap_underflow_x
@@ -149,7 +153,6 @@ done_left:
     lda new_keys
     and #KEY_RIGHT
     beq done_right
-    jsr render_oam_enable
     lda cursor_x
     cmp #CURSOR_X_MAX
     ; if overflow, set X to 0

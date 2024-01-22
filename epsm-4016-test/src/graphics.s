@@ -180,7 +180,7 @@ nametable_tableHi:
 .proc display_cursor
 tile_cursor = $1F
 
-    ldy #0
+    ldy #4
     ; y
     lda cursor_y
     cmp #2
