@@ -66,6 +66,7 @@ CLEARMEM:
 
   LDA #%00011110		; enable rendering
   STA PPUMASK_state
+  STA PPUMASK
   LDA #%10000000
   STA PPUCTRL
   STA PPUCTRL_state

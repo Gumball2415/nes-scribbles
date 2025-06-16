@@ -8,7 +8,7 @@ palette_1:
 
   ; FG
   .repeat 16
-    .byte $0D
+    .byte $0F
   .endrepeat
 
 palette_tableLo:

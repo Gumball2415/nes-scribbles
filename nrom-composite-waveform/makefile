@@ -17,7 +17,7 @@ version = 0.0.1
 # Space-separated list of assembly language files that make up the
 # PRG ROM.  If it gets too long for one line, you can add a backslash
 # (the \ character) at the end of the line and continue on the next.
-objlist = header init main control_read nmi irq graphics
+objlist = header init main nmi irq graphics
 
 AS65 = ca65
 LD65 = ld65

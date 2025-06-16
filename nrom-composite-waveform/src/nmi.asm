@@ -9,16 +9,6 @@
   TXA
   PHA
 
-  ; transfer OAM data from $02xx
-  LDA #0
-  STA OAMADDR
-  LDA #$02
-  STA OAMDMA
-  NOP
-
-  ; controller state is in controller_1
-  JSR CONTROL_READ
-
   INC framecounter
 
   ; update mask and ctrl state
